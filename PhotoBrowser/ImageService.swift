@@ -15,7 +15,6 @@ class ImageService {
     var cache:[URL:UIImage] = [:]
     
     
-    // processes an imagez
     func imageForURL(url: URL?, completion: @escaping (UIImage?, URL?) -> ()) {
         guard let url = url else { completion(nil, nil); return }
         if let image = cache[url] {

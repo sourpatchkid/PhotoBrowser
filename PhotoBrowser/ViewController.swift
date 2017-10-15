@@ -31,7 +31,6 @@ class ViewController: UIViewController {
             let data = data!
             let json = try! JSONSerialization.jsonObject(with: data, options: [])
             let array = json as! [[String: Any]]
-            // map the dictionary to the array
             self.photos = array.map  { Photo (dictionary: $0) }
             self.photos += self.photos
             self.photos += self.photos

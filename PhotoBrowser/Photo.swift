@@ -22,7 +22,6 @@ struct Photo {
     
     init(id: String, owner: String, secret: String, server: String, farm: Int, title: String, isPublic: Bool, isFriend: Bool, isFamily: Bool ) {
         
-        // how to ignore header???? do I need to??
         
         self.id = id
         self.owner = owner
