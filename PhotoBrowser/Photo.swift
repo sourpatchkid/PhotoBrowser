@@ -19,8 +19,9 @@ struct Photo {
     let isPublic: Bool
     let isFriend: Bool
     let isFamily: Bool
+    let imageURL: URL
     
-    init(id: String, owner: String, secret: String, server: String, farm: Int, title: String, isPublic: Bool, isFriend: Bool, isFamily: Bool ) {
+    init(id: String, owner: String, secret: String, server: String, farm: Int, title: String, isPublic: Bool, isFriend: Bool, isFamily: Bool, imageURL: URL ) {
         
         
         self.id = id
@@ -32,6 +33,7 @@ struct Photo {
         self.isPublic = isPublic
         self.isFriend = isFriend
         self.isFamily = isFamily
+        self.imageURL = imageURL
         
     }
     
@@ -46,8 +48,10 @@ struct Photo {
         let isPublic = dictionary["ispublic"] as! Bool
         let isFriend = dictionary["isfriend"] as! Bool
         let isFamily = dictionary["isfamily"] as! Bool
+        let imageURL = URL(string: "https://farm" + "\(farm)" + ".static.flickr.com/" + server + "/" + id + "_" + secret + ".jpg")
+        let backupURL = URL(string: "https://ichef-1.bbci.co.uk/news/660/cpsprodpb/37B5/production/_89716241_thinkstockphotos-523060154.jpg")!
         
-        self.init(id: id, owner: owner, secret: secret, server: server, farm: farm, title: title, isPublic: isPublic, isFriend: isFriend, isFamily: isFamily)
+        self.init(id: id, owner: owner, secret: secret, server: server, farm: farm, title: title, isPublic: isPublic, isFriend: isFriend, isFamily: isFamily, imageURL: imageURL ?? backupURL)
         
     }
     
